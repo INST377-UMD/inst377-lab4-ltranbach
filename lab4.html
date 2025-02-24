@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title> Lab 4</title>
+        <link rel = "stylesheet" href = "lab4.css">
+    </head>
+
+    <body>
+        <h1 id = "heading">INST377 - Lab 4</h1>
+
+        <div class = "section" id = "alertMeSection">
+            <form name = "alertForm" onsubmit = "alertName(); return false;"> 
+                <label for = "name">Name: </label>
+                <input type = "text" id = "name" required>
+                <button type = "submit">Alert Me!</button>
+            </form>
+        </div>
+
+        <div class = "section" id = "changeColorSection">
+            <form>
+                <button type = "button" onclick = "changeColor()">Change Color</button>
+            </form>
+        </div>
+
+        <div class = "section" id = "textTesterSection">
+            <form name = "textTesterForm" onsubmit = "validateText(); return false;">
+                <label for = "textTester">Text Tester: </label>
+                <input type = "text" id = "textTester" required>
+                <button type = "submit">Validate Text</button>
+            </form>
+        </div>
+
+        <div class = "section" id = "addTextSection">
+            <form>
+                <button type = "button" onclick = "addText()">Add Text</button>
+            </form>
+        </div>
+
+        <script type = "text/javascript">
+            function alertName() {
+                alert('Hi ' + document.alertForm.name.value + '!')
+            }
+
+            function changeColor() {
+                if(document.body.style.backgroundColor == 'aquamarine') {
+                    document.body.style.backgroundColor = 'red'
+                } else {
+                    document.body.style.backgroundColor = 'aquamarine'
+                }
+            }
+
+            function validateText() {
+                var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                if(validation.test(document.textTesterForm.textTester.value)) {
+                    alert('Please input text without special characters!')
+                    return false; 
+                }
+            }
+
+            function addText() {
+                document.getElementById("heading").textContent += "Add Text"
+            }
+      
+        </script>
+    </body>
+</html>
